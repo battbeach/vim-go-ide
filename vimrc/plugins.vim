@@ -7,7 +7,7 @@ call pathogen#helptags()
 " Custom color scheme
 "------------------------------------------------------------------------------
 try
-    colorscheme foursee
+    colorscheme desert 
 catch
 endtry
 
@@ -156,3 +156,6 @@ au FileType go nmap <leader>c <Plug>(go-coverage)
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+
+" Populate airline symbols with powerline symbols 
+let g:airline_powerline_fonts = 1

@@ -5,6 +5,7 @@
 " let's make sure we are in noncompatble mode
 set nocp
 
+
 " Sets how many lines of history VIM has to remember
 set history=700
 
