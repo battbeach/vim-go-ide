@@ -119,9 +119,15 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+"  let g:neocomplete#sources#omni#input_patterns = {}
+"endif
+"let g:neocomplete#force_omni_input_patterns.go = '[^.[:digit:] *\t]\.'
+if !exists('g:neocomplete#force_omni_input_patterns')
+  let g:neocomplete#force_omni_input_patterns = {}
 endif
+let g:neocomplete#force_omni_input_patterns.go = '[^.[:digit:] *\t]\.'
+
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 "let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 "let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
@@ -159,3 +165,31 @@ let g:go_highlight_structs = 1
 
 " Populate airline symbols with powerline symbols 
 let g:airline_powerline_fonts = 1
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_type_go = {  
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }

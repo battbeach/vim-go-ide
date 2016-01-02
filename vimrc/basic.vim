@@ -36,7 +36,9 @@ nnoremap JJJJ <nop>
 "------------------------------------------------------------------------------
 
 " Make sure that coursor is always vertically centered on j/k moves
-set so=999
+" set so=999
+"enable/disable cursor centering using <Leader>zz
+nnoremap <Leader>zz :let &scrolloff=999-&scrolloff<CR>
 
 " add vertical lines on columns
 set colorcolumn=80,120
